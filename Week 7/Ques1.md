@@ -9,7 +9,7 @@ In this question, you have to write a Python program to print the names of the p
   Arjun, All Stars
   
  ## Solution:
- ```
+ ```python 
  import sys
 import os
 import psycopg2
