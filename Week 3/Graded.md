@@ -1,52 +1,73 @@
 ## Question 1
-Write an SQL statement to find the name of the manager of the team: “All Stars”.</br>
+Write an SQL statement to find the match number of the match held on ‘2020-05-11’
+and the name of the main referee who refereed that match.
+Print match num first followed by respective main referee name.</br>
+Note: main referee is to be obtained from the ‘referee’ attribute.</br>
 Database: FLIS
 
 ### Solution:
 ```
-select m.name
-from managers m, teams t
-where m.team_id = t.team_id and t.name = ’All Stars’
+select match_num,name from referees
+inner join match_referees on referees.referee_id=match_referees.referee
+inner join matches using(match_num)
+where match_date=’2020-05-11’;
 ```
 
 ## Question 2
-Write an SQL statement to find the names of all teams.</br>
+Write an SQL statement to find the name of the youngest player in the team named
+“All Stars”.</br>
 Database: FLIS
 
 ### Solution:
 ```
-select name from teams
+select pl1.name
+from players pl1, teams te1
+  where te1.team_id = pl1.team_id and te1.name = ’All Stars’
+and pl1.dob = (
+  select max(pl2.dob)
+  from players pl2, teams te2
+  where te2.team_id = pl2.team_id and te2.name = ’All Stars’
+  );
 ```
 ## Question 3
-Write an SQL statement to find the titles of books authored by an author having first
-name as ”Joh Paul” and last name as ”Mueller”.</br>
-Database: LIS
+Write an SQL statement to find the names of teams that do not have any player with
+jersey number (jersey no) 74.</br>
+Database: FLIS
 
 ### Solution:
 ```
-select c.title
-from book_catalogue c, book_authors a
-where c.isbn_no = a.isbn_no
-and author_fname = ’Joh Paul’ and author_lname = ’Mueller’
+select name
+from teams where team_id in
+  ((select team_id from teams)
+  except
+  (select distinct team_id
+  from players
+  where jersey_no = 74));
 ```
 ## Question 4
-Write an SQL statement to find the titles of books published by ”McGraw Hill Educa-
-tion”.</br>
+Write an SQL statement to find student fname and student lname of all students who
+have issued at least one book.</br>
 Database: LIS
 
 ### Solution:
 ```
-select title
-from book_catalogue
-where publisher = ’McGraw Hill Education’
+select student_fname, student_lname
+from students
+where roll_no in
+  (select roll_no
+  from members a, book_issue b
+  where a.member_no=b.member_no
+);
 ```
 ## Question 5
-Write an SQL statement to display the first name and the last name of students (stu-
-dent fname, student lname) pursuing ‘PG’ courses.</br>
+Write an SQL statement to find the book titles and the number of copies of the books
+which has the word “Database” in their title.</br>
 Database: LIS
 
 ### Solution:
 ```
-select student_fname, student_lname from students s, members m
-where s.roll_no = m.roll_no and member_type = ’PG’
+select title, count(*)
+from book_catalogue b1 join book_copies b2
+on b1.isbn_no = b2.isbn_no
+where title like ’%Database%’ group by title;
 ```
