@@ -1,4 +1,4 @@
-# DBMS_IITM
+# DBMS_IITM :sparkles:
 This repository contains solutions to the weekly assignments (2 & 3) of the Database Management Systems (DBMS) course offered by the Indian Institute of Technology Madras (IITM) as part of the Diploma in Programming program. Additionally, it also contains the OPPE (Open Programming Practice Environment) assignments for the course.
 
 # Course Overview
@@ -43,6 +43,9 @@ git clone https://github.com/NebulaTris/DBMS_IITM.git
 
 # Contributing
 Contributions to this repository are welcome. If you find any errors or would like to add more queries, feel free to create a pull request. Please ensure that your queries are organized according to the folder structure above.
+
+# Meme Time :sunglasses:
+<img src="https://user-images.githubusercontent.com/94922914/234469007-c7f71d3f-d77e-4f7e-a832-f9ac64241e42.jpg" width="500">
 
 # License
 This repository is licensed under the MIT License. See the LICENSE file for more details
