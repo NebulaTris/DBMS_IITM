@@ -1,5 +1,5 @@
 # DBMS_IITM :sparkles:
-This repository contains solutions to the weekly assignments (2 & 3) of the Database Management Systems (DBMS) course offered by the Indian Institute of Technology Madras (IITM) as part of the Diploma in Programming program. Additionally, it also contains the OPPE (Open Programming Practice Environment) assignments for the course.
+This repository contains solutions to the weekly assignments (2 & 3) of the Database Management Systems (DBMS) course offered by the Indian Institute of Technology Madras (IITM) as part of the Diploma in Programming program. Additionally, it also contains past OPPE solutions for the course.
 
 # Course Overview
 The DBMS course covers the fundamental concepts of database management systems, including the relational data model, SQL, transaction management, concurrency control, and database design.
